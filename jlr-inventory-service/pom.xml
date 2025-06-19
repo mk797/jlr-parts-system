@@ -9,7 +9,7 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.jlr.parts</groupId>
-	<artifactId>inventory-service</artifactId>
+	<artifactId>jlr-inventory-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>jlr-inventory-service</name>
 	<description>JLR Parts Inventory Service</description>

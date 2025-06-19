@@ -9,9 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.jlr.parts</groupId>
-	<artifactId>api-gateway-service</artifactId>
+	<artifactId>jlr-api-gateway-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api-gateway-service</name>
+	<name>jlr-api-gateway-service</name>
 	<description>JLR Parts API Gateway Service</description>
 
 	<properties>
