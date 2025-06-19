@@ -14,17 +14,6 @@ services:
       - consul-data:/consul/data
 
   # Databases
-  postgres-primary:
-    image: postgres:15
-    container_name: postgres-primary
-    environment:
-      POSTGRES_DB: jlr_parts
-      POSTGRES_USER: jlr_user
-      POSTGRES_PASSWORD: jlr_password
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
 
   # Redis for Caching & Sessions
   redis:
@@ -62,7 +51,6 @@ services:
 
 volumes:
   consul-data:
-  postgres-data:
   redis-data:
   zookeeper-data:
   kafka-data:
