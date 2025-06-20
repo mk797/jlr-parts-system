@@ -1,7 +1,7 @@
 package com.example.user_service.repository;
 
 
-import io.lettuce.core.dynamic.annotation.Param;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -27,7 +27,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     //find dealer manager for a specific dealer
 
-    @Query("SELECT u FROM User WHERE u.dealerID = :dealerId AND u.role = 'DEALER_MANAGER'")
+    @Query("SELECT u FROM User u WHERE u.dealerId = :dealerId AND u.role = 'DEALER_MANAGER'")
     List<User> findDealerManagersByDealerId(@Param("dealerId") String dealerId);
 
 
