@@ -1,60 +1,15 @@
 package com.example.user_service.dto;
 
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
+@Builder
 public class ErrorResponse {
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public List<ValidationError> getValidationErrors() {
-        return validationErrors;
-    }
-
-    public void setValidationErrors(List<ValidationError> validationErrors) {
-        this.validationErrors = validationErrors;
-    }
 
     private String message;
     private String error;
@@ -66,6 +21,7 @@ public class ErrorResponse {
 
 
     @Data
+    @Builder
     public static class ValidationError{
         private String field;
         private String message;

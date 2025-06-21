@@ -19,16 +19,15 @@
 		<java.version>17</java.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
+		<lombok.version>1.18.38</lombok.version>
 	</properties>
 
 	<dependencies>
-		<!-- Validation Annotations -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
-		<!-- JSON Processing -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -42,33 +41,29 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 
-		<!-- Lombok for reducing boilerplate -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
-		<!-- Common Spring Annotations -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
 
-		<!-- HTTP Status and Web Annotations -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 		</dependency>
 
-		<!-- Swagger Annotations for API Documentation -->
 		<dependency>
 			<groupId>io.swagger.core.v3</groupId>
 			<artifactId>swagger-annotations</artifactId>
 			<version>2.2.15</version>
 		</dependency>
 
-		<!-- Test Dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -78,7 +73,6 @@
 
 	<build>
 		<plugins>
-			<!-- Compiler Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -96,7 +90,6 @@
 				</configuration>
 			</plugin>
 
-			<!-- JAR Plugin for creating shared library -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -110,7 +103,6 @@
 				</configuration>
 			</plugin>
 
-			<!-- Source Plugin for generating source JAR -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -125,8 +117,6 @@
 				</executions>
 			</plugin>
 
-			<!-- Remove Spring Boot Plugin - NOT NEEDED for shared library -->
-			<!-- Shared libraries should NOT be executable JARs -->
 		</plugins>
 	</build>
 </project>

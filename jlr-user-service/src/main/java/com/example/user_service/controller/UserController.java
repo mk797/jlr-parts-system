@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
@@ -28,6 +29,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<UserResponse> registerUser(@Valid @RequestBody UserRegistrationRequest request){
+        log.info("user registration request has been received for email: {}" , request.getEmail());
 
         User user = convertToEntity(request);
         User registeredUser = userService.registerUser(user);
@@ -37,8 +39,9 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> loginUser(@Valid @RequestBody LoginRequest request) throws InvalidCredentialsException, org.apache.http.auth.InvalidCredentialsException {
+    public ResponseEntity<LoginResponse> loginUser(@Valid @RequestBody LoginRequest request) throws InvalidCredentialsException{
 
+        log.info("user login request has been received for email: {}" , request.getEmail());
 
         User authenticatedUser = userService.authenticateUser(request.getEmail(), request.getPassword());
 
@@ -49,11 +52,10 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponse> getUserById(@PathVariable Long id){
-
-        //Imp pending
-        return  ResponseEntity.ok().build();
-
+    public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
+        User user = userService.getById(id);
+        UserResponse response = convertToResponse(user);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping

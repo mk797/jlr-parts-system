@@ -9,11 +9,9 @@ import com.example.user_service.repository.UserRepository;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.auth.InvalidCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -90,6 +88,12 @@ public class UserService {
         return userRepository.findDealerManagersByDealerId(dealerId);
     }
 
+    @Transactional(readOnly = true)
+    public User getById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException("User not found: " + userId));
+    }
+
     public User updateUserProfile(Long userId, User userData){
 
         User existingUser = userRepository.findById(userId)
@@ -129,10 +133,7 @@ public class UserService {
         userRepository.save(currentUser);
 
     }
-
-
-
-
+    
 
 
 }
