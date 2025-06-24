@@ -13,5 +13,7 @@ public class LoginResponse {
     private Long userId;
     private String email;
     private UserRole role;
+    private String dealerId;
+    private Long expiresIn;
 
 }

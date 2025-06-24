@@ -66,3 +66,20 @@ logging:
     com.zaxxer.hikari: DEBUG
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+app:
+  jwt:
+    # Replace with your generated secret from Step 1
+    secret: "jsea4MCAav5YJeKQJ0lMsE8GHTsrU/RJRYAmthBaxhg="
+    access-token-expiration-seconds: 900    # 15 minutes
+    refresh-token-expiration-seconds: 604800 # 7 days
+    issuer: jlr-user-service
+    audience: jlr-parts-system
+    cookie:
+      name: jlr_auth_token
+      domain: localhost  # Change to actual domain in production
+      path: /
+      http-only: true
+      secure: false     # Set to true with HTTPS in production
+      same-site: Lax
+      max-age: 900      # Match access token expiration
