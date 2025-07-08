@@ -8,18 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="inventory-service" />
-        <module name="api-gateway-service" />
         <module name="jlr-order-service" />
         <module name="jlr-payment-service" />
         <module name="jlr-notification-service" />
       </profile>
-      <profile name="Annotation profile for jlr-user-service" enabled="true">
+      <profile name="Annotation profile for jlr-api-gateway" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
+        <module name="api-gateway-service" />
         <module name="jlr-shared-library" />
         <module name="user-service" />
       </profile>
